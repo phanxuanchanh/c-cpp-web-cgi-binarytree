@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>BAI TAP CAY NHI PHAN</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h3 class="text-success text-center">BAI TAP CAY NHI PHAN</h3>
+		<div class="row text-center">
+			<div class="col" id="binaryTree">
+				
+			</div>
+		</div>
+		<div class="row text-center pt-5">
+			<div class="col">
+				<button class="btn btn-primary" onclick="getResult(1);">Duyet cay</button>
+				<button class="btn btn-primary" onclick="getResult(2);">Dem</button>
+				<button class="btn btn-primary" onclick="getResult(3);">Tong</button>
+			</div>
+		</div>
+		<div id="result" style="background-color: #9eb1be;margin-top:10px;" class="">
+		</div>
+	</div>
+	<script type="text/javascript">
+		
+		setTimeout(function(){
+			$(document).ready(function(){
+				$.post("BinaryTree_Web_CGI.cgi", { select: 0 }, function(data){
+					$("#binaryTree").html(data);
+				});
+			});
+		}, 500);
+		
+		function getResult(val){
+			$(document).ready(function(){
+				$.post("BinaryTree_Web_CGI.cgi", { select: val }, function(data){
+					$("#result").html(data);
+				});
+			});
+		}
+	</script>
+</body>
+</html>
